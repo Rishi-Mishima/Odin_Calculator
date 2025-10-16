@@ -4,9 +4,12 @@ let previousOperand = '';
 let operation = undefined;
 let resetScreen = false;
 
-// Dom elements 
+// !------ Dom elements ------ !
+// Screens
 const currentOperandElement = document.querySelector('.current-operand');
 const previousOperandElement = document.querySelector('.previous-operand');
+
+// Buttons 
 const numberButtons = document.querySelectorAll('[data-action="number"]');
 const operatorButtons = document.querySelectorAll('[data-action="operator"]');
 const equalsButton = document.querySelector('[data-action="calculate"]');
@@ -15,47 +18,62 @@ const deleteButton = document.querySelector('[data-action="delete"]');
 const decimalButton = document.querySelector('[data-action="decimal"]');
 
 
+
 // Update calculator display
 function updateDisplay() {
     currentOperandElement.textContent = currentOperand;
-    // previousOperandElement.textContent = previousOperand + (operation ? ` ${operation}` : '');
 }
+
+function appendNumber() {
+
+}
+
+
 
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
+
         const action = button.dataset.action;
+        const value = button.textContent;
 
         if (action === 'delete') {
-            console.log('Delete was clicked');
+            //   deleteLastChar();
         } else if (action === 'operator') {
-            console.log(button.textContent);
+            //  chooseOperation(button.textContent);
         } else if (action === 'number') {
-            console.log(button.textContent);
+            if (currentOperand === '0') {
+                currentOperand = value;
+            } else {
+                currentOperand += value;
+            }
+            updateDisplay();
         }
     });
 });
 
+
+
 // Keyboard support 
 
-document.addEventListener("keydown", (e) => {
-    if (e.key >= '0' && e.key <= '9') {
-        appendNumber(e.key);
-        updateDisplay();
-    } else if (e.key === '.') {
-        addDecimal();
-        updateDisplay();
-    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
-        chooseOperation(e.key === '*' ? '×' : e.key === '/' ? '÷' : e.key);
-        updateDisplay();
-    } else if (e.key === 'Enter' || e.key === '=') {
-        compute();
-        updateDisplay();
-    } else if (e.key === 'Backspace') {
-        deleteDigit();
-        updateDisplay();
-    } else if (e.key === 'Escape') {
-        clear();
-        updateDisplay();
-    }
-})
+// document.addEventListener("keydown", (e) => {
+//     if (e.key >= '0' && e.key <= '9') {
+//         appendNumber(e.key);
+//         updateDisplay();
+//     } else if (e.key === '.') {
+//         addDecimal();
+//         updateDisplay();
+//     } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+//         chooseOperation(e.key === '*' ? '×' : e.key === '/' ? '÷' : e.key);
+//         updateDisplay();
+//     } else if (e.key === 'Enter' || e.key === '=') {
+//         compute();
+//         updateDisplay();
+//     } else if (e.key === 'Backspace') {
+//         deleteDigit();
+//         updateDisplay();
+//     } else if (e.key === 'Escape') {
+//         clear();
+//         updateDisplay();
+//     }
+// })
 
