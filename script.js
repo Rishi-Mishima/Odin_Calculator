@@ -51,6 +51,23 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
+// adding keyboard support - only numbers 
+document.addEventListener('keydown', (e) => {
+
+
+    if (e.key >= '0' && e.key <= '9') {
+        console.log(e.key);
+        let value = e.key;
+        if (currentOperand === '0') {
+            currentOperand = value;
+        } else {
+            currentOperand += value;
+        }
+        updateDisplay();
+
+    }
+})
+
 
 
 // Keyboard support 
