@@ -134,3 +134,18 @@ document.addEventListener('keydown', (e) => {
 //     }
 // })
 
+
+// the colour changing button
+
+const themeToggleBtn = document.querySelector('.theme-toggler');
+const calculator = document.querySelector('.pink');
+const toggleIcon = document.querySelector('.toggle-icon');
+
+let isPink = true;
+
+themeToggleBtn.onclik = () => {
+    calculator.classList.toggle('pink');
+    themeToggleBtn.classList.toggle('active');
+    isPink = !isPink;
+}
+

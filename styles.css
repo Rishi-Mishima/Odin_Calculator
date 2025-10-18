@@ -9,6 +9,30 @@ body {
 }
 
 
+
+
+/* --------- */
+.container {
+    position: relative;
+    /* ✅ important for absolute children */
+    background: #ffa1e1;
+    padding: 20px;
+    width: 320px;
+    border: 4px solid #444;
+    border-radius: 25px;
+    image-rendering: pixelated;
+    box-shadow: 0 0 15px #000;
+    backdrop-filter: blur(2px);
+    padding-top: 30px;
+}
+
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    min-height: 20px;
+}
+
 /* change the theme button */
 .theme-toggler {
     position: absolute;
@@ -40,27 +64,6 @@ body {
 }
 
 /* --------- */
-.calculator {
-    position: relative;
-    /* ✅ important for absolute children */
-    background: #ffa1e1;
-    padding: 20px;
-    width: 320px;
-    border: 4px solid #444;
-    border-radius: 25px;
-    image-rendering: pixelated;
-    box-shadow: 0 0 15px #000;
-    backdrop-filter: blur(2px);
-    padding-top: 30px;
-}
-
-
-.previous-operand {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    min-height: 20px;
-}
-
 
 .current-operand {
     background: #000;
@@ -158,4 +161,32 @@ body {
 .github-icon {
     width: 30px;
     height: 30px;
+}
+
+/* ---- blue theme ----- */
+.calculator.dark {
+    background-color: #071115;
+}
+
+.calculator.dark #display {
+    color: #f8fafd;
+}
+
+.calculator.dark button#clear {
+    background-color: #785964;
+    color: #d5c7bc;
+}
+
+.calculator.dark button.btn-number {
+    background-color: #3a606e;
+    color: #f8fafb;
+}
+
+.calculator.dark button.btn-operator {
+    background-color: #afbfc0;
+    color: #4e8098;
+}
+
+.calculator.dark button.btn-equal {
+    background-color: #566246;
 }
