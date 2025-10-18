@@ -8,7 +8,41 @@ body {
     margin: 0;
 }
 
+
+/* change the theme button */
+.theme-toggler {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.theme-toggler.active {
+    color: #333;
+}
+
+.theme-toggler.active ::before {
+    background-color: #fff;
+}
+
+.theme-toggler::before {
+    content: "";
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #333;
+    z-index: -1;
+}
+
+/* --------- */
 .calculator {
+    position: relative;
+    /* ✅ important for absolute children */
     background: #ffa1e1;
     padding: 20px;
     width: 320px;
@@ -17,7 +51,9 @@ body {
     image-rendering: pixelated;
     box-shadow: 0 0 15px #000;
     backdrop-filter: blur(2px);
+    padding-top: 30px;
 }
+
 
 .previous-operand {
     color: rgba(255, 255, 255, 0.7);

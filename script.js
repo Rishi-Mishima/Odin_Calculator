@@ -28,26 +28,65 @@ function appendNumber() {
 
 }
 
+// function for the button 'del'
+function deleteChar() {
+    currentOperand = currentOperand.slice(0, -1);
+}
+
+// fuction for the button 'AC'
+function clearScreen() {
+    currentOperand = '0';
+
+}
+
+function chooseOperation() {
+    console.log(value);
+
+    if (value === '+') {
+        console.log('Plus operation selected');
+    } else if (value === '-') {
+
+    } else if (value === '×') {
+
+    } else if (value === '÷') {
+
+    }
+}
+
+
+
+
 
 
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
 
         const action = button.dataset.action;
-        const value = button.textContent;
+        const value = button.textContent; // use it to get the value : numbers, operators 
 
-        if (action === 'delete') {
-            //   deleteLastChar();
-        } else if (action === 'operator') {
-            //  chooseOperation(button.textContent);
+        if (action === 'operator') {
+            chooseOperation(value);
+            // updateDisplay();
+
         } else if (action === 'number') {
             if (currentOperand === '0') {
                 currentOperand = value;
             } else {
                 currentOperand += value;
             }
-            updateDisplay();
+
+        } else if (action == 'delete') {
+
+            deleteChar();
+
+            if (currentOperand.length === 0) {
+                currentOperand = '0';
+            }
+
+        } else if (action == 'clear') {
+            clearScreen();
         }
+        updateDisplay();
     });
 });
 
@@ -67,6 +106,7 @@ document.addEventListener('keydown', (e) => {
 
     }
 })
+
 
 
 
