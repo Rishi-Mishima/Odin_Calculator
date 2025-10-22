@@ -137,15 +137,25 @@ document.addEventListener('keydown', (e) => {
 
 // the colour changing button
 
-const themeToggleBtn = document.querySelector('.theme-toggler');
-const calculator = document.querySelector('.pink');
-const toggleIcon = document.querySelector('.toggle-icon');
+const themeToggler = document.querySelector('.theme-toggler');
+const calculator = document.querySelector('.calculator');
+const container = document.querySelector('.container');
 
-let isPink = true;
+// Start with a dark theme instead of pink (optional)
+calculator.classList.remove('pink');
+calculator.classList.add('dark');
+// If you also want the container background to change:
+container.classList.add('dark');
 
-themeToggleBtn.onclik = () => {
-    calculator.classList.toggle('pink');
-    themeToggleBtn.classList.toggle('active');
-    isPink = !isPink;
-}
+themeToggler.addEventListener('click', () => {
+    themeToggler.classList.toggle('active');
+
+    // flip calculator theme
+    container.classList.toggle('dark');
+    container.classList.toggle('pink');
+
+    // optional: flip container background too
+    //container.classList.toggle('dark');
+});
+
 

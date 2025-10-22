@@ -27,6 +27,7 @@ body {
 }
 
 
+
 .previous-operand {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
@@ -47,9 +48,11 @@ body {
     color: #333;
 }
 
-.theme-toggler.active ::before {
+/* Fix the toggler pseudo-element selector (no space!) */
+.theme-toggler.active::before {
     background-color: #fff;
 }
+
 
 .theme-toggler::before {
     content: "";
@@ -163,30 +166,38 @@ body {
     height: 30px;
 }
 
-/* ---- blue theme ----- */
-.calculator.dark {
-    background-color: #071115;
+/* -------- THEMES ---------- */
+
+
+
+/* PINK THEME — you already had some; keep or tweak */
+.container.pink {
+    background-color: #656767;
+    /* your “blue theme” label, feel free to change */
 }
 
-.calculator.dark #display {
+/* Display in pink theme */
+.container.pink .current-operand {
+    background: #0b1a2b;
     color: #f8fafd;
+    border-color: #91d1ff;
 }
 
-.calculator.dark button#clear {
-    background-color: #785964;
-    color: #d5c7bc;
-}
-
-.calculator.dark button.btn-number {
-    background-color: #3a606e;
+/* buttons in pink theme */
+.container.pink .button {
+    background-color: #09475e;
     color: #f8fafb;
+    border-color: #27434d;
 }
 
-.calculator.dark button.btn-operator {
-    background-color: #afbfc0;
+/* operators in pink theme */
+.container.pink .symbols {
+    background-color: #89d0d5;
     color: #4e8098;
 }
 
-.calculator.dark button.btn-equal {
+/* equals in pink theme */
+.calculator.pink [data-action="calculate"] {
     background-color: #566246;
+    color: #eaf4ea;
 }
